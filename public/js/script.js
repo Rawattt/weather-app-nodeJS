@@ -1,5 +1,6 @@
 console.log('Script is loaded')
 const weatherBtn = document.querySelector('.weather')
+const pError = document.querySelector('.error')
 
 
 const weatherForm = document.querySelector('form')
@@ -12,13 +13,17 @@ weatherForm.addEventListener('submit', (e) => {
     res.json().then(data => {
         if(data.error){
 
-            weatherBtn.innerHTML = `${data.error}`
-            `${data.description} , ${data.temperature}, ${data.address}`
+            pError.innerText = `${data.error}`
+            weatherBtn.firstElementChild.innerHTML = ''
+            weatherBtn.childNodes[3].innerHTML = ''
+            weatherBtn.lastElementChild.innerHTML = ''
         }
         else{
             weatherBtn.firstElementChild.innerHTML = `Address : ${data.address}`
             weatherBtn.childNodes[3].innerHTML = `Temperature : ${data.temperature} C`
             weatherBtn.lastElementChild.innerHTML = `Description : ${data.description}`
+            pError.innerText = ''
+            console.log('data received')
         }
     })
 })

@@ -80,6 +80,10 @@ header a {
     color: aliceblue;
 }
 
+ul.weather{
+    padding-left: 0;
+}
+
 .weather li{
     list-style: none;
 }
