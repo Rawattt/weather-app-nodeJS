@@ -16,9 +16,6 @@ hbs.registerPartials(partialsPath)
 
 app.use(express.static(publicDirPath))
 
-// app.get('', (req, res) => {
-//     res.send('Hello World, I am using Express')
-// })
 
 app.get('', (req,res) => {
     res.render('index', {
