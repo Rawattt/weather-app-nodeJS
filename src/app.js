@@ -32,21 +32,17 @@ app.get('/home', (req,res) => {
 app.get('/contact', (req,res) => {
     res.render('contact', {
         name:'Shubham Rawat',
-        title:'Contact'
+        title:'Contact',
+        email:'rawatrajput7@gmail.com'
     })
 })
 
-app.get('/help', (req, res) => {
-    res.render('help', {
-        text:'This is some useful text',
-        title:'Help',
-        name:'Shubham Rawat'
-    })
-})
+
 app.get('/about', (req, res) => {
-    res.render('about', {
-        title:'About Me',
-        name:'Shubham Rawat'
+    res.render('About', {
+        title:'About the website',
+        name:'Shubham Rawat',
+        about:'This is a basic weather application built using node.js. It uses openweathermap and mapbox api to fetch location and waether data'
     })
 })
 app.get('/weather', (req, res) => {

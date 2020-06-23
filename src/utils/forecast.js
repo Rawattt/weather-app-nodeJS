@@ -2,7 +2,7 @@ const request = require('request')
 const chalk = require('chalk')
 
 const forecast = (long, lat, callback) => {
-    const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&%20&appid=a6dc86ce0b34804aaa8b528eb97af8b6&units=metric&lang=hi`
+    const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&%20&appid=a6dc86ce0b34804aaa8b528eb97af8b6&units=metric`
 
     request({url, json:true}, (err,{body}) => {
         if(err){

@@ -79,3 +79,7 @@ header a {
     padding: 8px;
     color: aliceblue;
 }
+
+.weather li{
+    list-style: none;
+}

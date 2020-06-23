@@ -13,9 +13,12 @@ weatherForm.addEventListener('submit', (e) => {
         if(data.error){
 
             weatherBtn.innerHTML = `${data.error}`
+            `${data.description} , ${data.temperature}, ${data.address}`
         }
         else{
-            weatherBtn.innerHTML = `${data.description} , ${data.temperature}, ${data.address}`
+            weatherBtn.firstElementChild.innerHTML = `Address : ${data.address}`
+            weatherBtn.childNodes[3].innerHTML = `Temperature : ${data.temperature} C`
+            weatherBtn.lastElementChild.innerHTML = `Description : ${data.description}`
         }
     })
 })
