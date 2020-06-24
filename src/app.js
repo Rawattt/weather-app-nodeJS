@@ -33,7 +33,6 @@ app.get('/home', (req,res) => {
 app.get('/contact', (req,res) => {
     res.render('contact', {
         name:'Shubham Rawat',
-        title:'Contact',
         email:'rawatrajput7@gmail.com'
     })
 })
