@@ -39,7 +39,7 @@ app.get('/contact', (req,res) => {
 
 
 app.get('/about', (req, res) => {
-    res.render('About', {
+    res.render('about', {
         title:'About the website',
         name:'Shubham Rawat',
         about:'This is a basic weather application built using node.js. It uses openweathermap and mapbox api to fetch location and waether data'
