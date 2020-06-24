@@ -8,7 +8,7 @@ const search = document.querySelector('input')
 
 weatherForm.addEventListener('submit', (e) => {
     e.preventDefault()
-    const url = `http://localhost:3000/weather?address=${encodeURIComponent(search.value)}`
+    const url = `/weather?address=${encodeURIComponent(search.value)}`
     fetch(url).then(res => {
     res.json().then(data => {
         if(data.error){
