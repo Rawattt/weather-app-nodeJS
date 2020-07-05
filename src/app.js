@@ -46,34 +46,47 @@ app.get('/about', (req, res) => {
     })
 })
 app.get('/weather', (req, res) => {
-    
-    if(!req.query.address){
-        return res.send({
-            error:'Please enter address'
+
+    if(req.query.lat){
+        forecast.forecast(req.query.long, req.query.lat, (error, {description, temperature}) => {
+            if(error){
+                return res.send({error})
+            }
+            res.send({
+                description,
+                temperature
+            })
         })
-    }
-    const tmp = {}
-    geocode.geocode(req.query.address, (error, {longitude, latitude, location} = tmp) => {
-        if(error){
-            res.send({error:'Unable to find the location. Try again'})
-        }
-        else{
-            forecast.forecast(longitude, latitude , (error, {description, temperature}) => {
-                if(error){
-                    return res.send({error})
-                }
-                res.send({
-                    description,
-                    temperature,
-                    address:req.query.address
-                })
+    }else{
+        if(!req.query.address){
+            return res.send({
+                error:'Please enter address'
             })
         }
-    })
-
-
+        const tmp = {}
+        geocode.geocode(req.query.address, (error, {longitude, latitude, location} = tmp) => {
+            if(error){
+                res.send({error:'Unable to find the location. Try again'})
+            }
+            else{
+                forecast.forecast(longitude, latitude , (error, {description, temperature}) => {
+                    if(error){
+                        return res.send({error})
+                    }
+                    res.send({
+                        description,
+                        temperature,
+                        address:req.query.address
+                    })
+                })
+            }
+        })
+    }
     
 })
+
+
+
 
 app.get('*', (req, res) => {
     res.render('404', {
